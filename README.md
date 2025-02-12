@@ -1,31 +1,27 @@
-# 🎵 Song Guesser
+# Song Judge
 
-A fun and interactive music guessing game built with Next.js and the Spotify API. Test your music knowledge by guessing songs from short previews!
+A simple web app that displays random songs from Spotify and lets you listen to them using the Spotify embedded player.
 
-## ✨ Features
+## Features
 
-- 🎮 Single and Two-Player modes
-- ⏱️ Configurable preview length (5s or 10s)
-- 🏆 Score tracking with local storage
-- 🎯 Instant feedback on guesses
-- 🎨 Beautiful, responsive UI with dark mode support
-- 🔊 High-quality song previews from Spotify
+- Fetches random songs using Spotify's Web API
+- Displays song details including name, artist, and album artwork
+- Embedded Spotify player for instant playback
+- Clean, modern UI built with Next.js and Tailwind CSS
 
-## 🚀 Getting Started
+## Tech Stack
 
-### Prerequisites
+- [Next.js 14](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [shadcn/ui](https://ui.shadcn.com/) - UI components
+- [Spotify Web API](https://developer.spotify.com/documentation/web-api) - Music data
 
-- Node.js 16.x or later
-- A Spotify Developer account
-- A Spotify playlist ID containing the songs you want to use
+## Getting Started
 
-### Environment Setup
-
-1. Create a `.env` file in the root directory:
-```env
-SPOTIFY_CLIENT_ID=your_client_id_here
-SPOTIFY_CLIENT_SECRET=your_client_secret_here
-SPOTIFY_PLAYLIST_ID=your_playlist_id_here
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/song-guesser.git
+cd song-guesser
 ```
 
 2. Install dependencies:
@@ -33,69 +29,35 @@ SPOTIFY_PLAYLIST_ID=your_playlist_id_here
 npm install
 ```
 
-3. Start the development server:
+3. Create a Spotify application:
+   - Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
+   - Create a new application
+   - Copy the Client ID and Client Secret
+
+4. Set up environment variables:
+   - Copy `.env` to `.env.local`
+   - Update the values in `.env.local` with your Spotify credentials:
+```env
+SPOTIFY_CLIENT_ID=your_client_id_here
+SPOTIFY_CLIENT_SECRET=your_client_secret_here
+```
+
+5. Run the development server:
 ```bash
 npm run dev
 ```
 
-## 🎮 How to Play
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-1. Choose between Single Player or Two Player mode using the toggle
-2. Select your preferred preview length (5s or 10s)
-3. Click "Play Random Song" to start
-4. Listen to the preview and type your guess
-5. Submit your guess to see if you're correct
-6. Scores are automatically saved between sessions
+## How It Works
 
-## 🛠️ Technical Stack
+The app uses Spotify's Web API with client credentials flow (server-to-server) to:
+1. Search for tracks using common words
+2. Select a random track from the results
+3. Display the track details and embedded player
 
-- **Frontend**: Next.js 13 with App Router
-- **Styling**: Tailwind CSS
-- **UI Components**: shadcn/ui
-- **Icons**: Lucide React
-- **Music API**: Spotify Web API
-- **State Management**: React Hooks
-- **Storage**: Local Storage for game state
-- **Notifications**: Sonner for toasts
+No user authentication is required as it only accesses public data.
 
-## 📦 Project Structure
+## License
 
-```
-song-guesser/
-├── app/
-│   ├── api/
-│   │   ├── check-guess/
-│   │   └── random-song/
-│   ├── page.tsx
-│   └── layout.tsx
-├── components/
-│   └── ui/
-├── lib/
-│   └── spotify.ts
-└── public/
-```
-
-## 🔒 Security
-
-- Environment variables for sensitive data
-- Server-side API calls to protect Spotify credentials
-- Client-side preview URLs only
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
-
-## 📝 License
-
-This project is MIT licensed.
-
-## 🙏 Acknowledgments
-
-- [Spotify Web API](https://developer.spotify.com/documentation/web-api/) for music data
-- [shadcn/ui](https://ui.shadcn.com/) for beautiful UI components
-- [Tailwind CSS](https://tailwindcss.com/) for styling
-- [Next.js](https://nextjs.org/) for the framework
+MIT
