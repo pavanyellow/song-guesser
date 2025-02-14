@@ -1,63 +1,92 @@
-# Song Judge
+# Song Guesser
 
-A simple web app that displays random songs from Spotify and lets you listen to them using the Spotify embedded player.
+A fun music guessing game for teams! Play songs from Spotify and let teams compete to guess them correctly.
 
 ## Features
 
-- Fetches random songs using Spotify's Web API
-- Displays song details including name, artist, and album artwork
-- Embedded Spotify player for instant playback
-- Clean, modern UI built with Next.js and Tailwind CSS
+- Team-based gameplay with customizable team names
+- Spotify integration for playing songs
+- Score tracking with configurable winning points
+- Quick song lookup for judges
+- Preloaded songs for smooth gameplay
+- Celebration animations for winners
 
 ## Tech Stack
 
-- [Next.js 14](https://nextjs.org/) - React framework
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [shadcn/ui](https://ui.shadcn.com/) - UI components
-- [Spotify Web API](https://developer.spotify.com/documentation/web-api) - Music data
+- Next.js 14 with App Router
+- TypeScript
+- Tailwind CSS
+- Spotify API
+- Vercel Deployment
 
 ## Getting Started
 
+### Prerequisites
+
+1. Node.js 18 or later
+2. A Spotify Developer account
+3. A Vercel account (for deployment)
+
+### Local Development
+
 1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/song-guesser.git
-cd song-guesser
-```
+   ```bash
+   git clone https://github.com/yourusername/song-guesser.git
+   cd song-guesser
+   ```
 
 2. Install dependencies:
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
-3. Create a Spotify application:
-   - Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
-   - Create a new application
-   - Copy the Client ID and Client Secret
+3. Copy the environment variables file:
+   ```bash
+   cp .env.example .env.local
+   ```
 
-4. Set up environment variables:
-   - Copy `.env` to `.env.local`
-   - Update the values in `.env.local` with your Spotify credentials:
-```env
-SPOTIFY_CLIENT_ID=your_client_id_here
-SPOTIFY_CLIENT_SECRET=your_client_secret_here
-```
+4. Fill in your Spotify API credentials in `.env.local`
 
 5. Run the development server:
-```bash
-npm run dev
-```
+   ```bash
+   npm run dev
+   ```
 
-6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## How It Works
+## Deployment on Vercel
 
-The app uses Spotify's Web API with client credentials flow (server-to-server) to:
-1. Search for tracks using common words
-2. Select a random track from the results
-3. Display the track details and embedded player
+1. Push your code to GitHub
 
-No user authentication is required as it only accesses public data.
+2. Connect your repository to Vercel:
+   - Go to [Vercel](https://vercel.com)
+   - Click "New Project"
+   - Import your GitHub repository
+   - Select the repository
+
+3. Configure environment variables:
+   - In your Vercel project settings, go to "Environment Variables"
+   - Add the following variables:
+     - `SPOTIFY_CLIENT_ID`
+     - `SPOTIFY_CLIENT_SECRET`
+     - `SPOTIFY_REFRESH_TOKEN`
+
+4. Deploy:
+   - Vercel will automatically deploy your app
+   - Any push to the main branch will trigger a new deployment
+
+### Obtaining Spotify Credentials
+
+1. Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
+2. Create a new application
+3. Get your Client ID and Client Secret
+4. Set up your redirect URI in the app settings
+5. Follow the OAuth flow to get your refresh token
 
 ## License
 
-MIT
+MIT License - feel free to use this project for your own purposes!
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
